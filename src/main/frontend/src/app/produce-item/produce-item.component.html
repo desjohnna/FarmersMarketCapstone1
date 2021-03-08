@@ -1,0 +1,38 @@
+<!-- <p>produce-item works!</p> -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Produce for Sale</h4>
+
+            <!-- <input [(ngModel)]="filterText" placeholder="Search"> -->
+
+            <div class="row">
+                <div class="col-md-6 mb-3" *ngFor="let produceItem of produceItemsList; let i = index">
+
+                    <!-- <app-produce-item [produceItem]="produceItem" [i]="i"></app-produce-item> -->
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <!-- <img class="card-img-top" [src]="produceItem.imageU" alt="Card image cap" height="100"> -->
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ i + 1 }}: {{ produceItem.name }}</h5>
+                                    <p class="card-text">
+                                        {{ produceItem.price | currency }}
+                                    </p>
+                                    <!-- <a [routerLink]="[produceItem.id]" class="btn btn-primary">Add to Cart</a> -->
+
+                                    <button (click)="onAddProduceItemToCart(produceItem)" class="btn btn-primary m-1" id=addToCartBtn`${produceItem.id}`>Add to Cart</button>
+                                    <!-- <app-add-to-cart-button [item]="item"></app-add-to-cart-button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

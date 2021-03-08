@@ -1,0 +1,32 @@
+<p>cart works!</p>
+
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+  
+        <div class="row mb-2" *ngFor="let cartItem of cartItems; let i = index">
+          <div class="col-6">
+            {{i + 1}}: {{cartItem.name}}
+          </div>
+          <div class="col-6">
+            <button class="btn btn-danger float-right" (click)="onRemoveProduceItemFromCart(i)">Delete</button>
+          </div>
+        </div>
+        <strong *ngIf="cartItems.length > 0">Total: {{ total | currency }}</strong>
+        <div class="row" *ngIf="cartItems.length === 0">
+          <div class="col-12">
+            <p>No items in cart.</p>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-info" (click)="onPurchase()" [disabled]="cartItems.length === 0">Purchase</button>
+            <p>{{infoText}}</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
